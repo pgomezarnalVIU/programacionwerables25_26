@@ -9,6 +9,7 @@ fun menu_principal():Int{
 
 fun main(){
     //Nuevo diccionario que represente a un equipo de baloncesto
+    //como [nombre_jugador]=anotacion
     val equipo_baloncesto = mutableMapOf<String, Int>()
 
     //Bucle infinito
@@ -18,6 +19,7 @@ fun main(){
                 println("Introducir el nombre del jugador: ")
                 val nombre_jugador:String = readln()
                 val anotacion_jugador: Int = readln().toIntOrNull() ?: 0
+                //val anotacion_jugador_nulo: Int? = readln().toIntOrNull()
                 equipo_baloncesto[nombre_jugador] = anotacion_jugador
                 println("Jugador $nombre_jugador agregado con anotacion $anotacion_jugador")
             }

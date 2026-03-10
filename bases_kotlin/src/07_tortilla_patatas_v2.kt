@@ -1,32 +1,30 @@
 fun main(){
-
     // Creamos array con los productos básicos para hacer una tortilla de patatas
     val ingredientes = arrayOf("patatas","huevos","aceite","sal")
-    // Creamos un array vacio con el mismo tamaño que el array de ingredientes
-    // de cantidades de cada ingrediente que deberíamos comprar
-    val cantidades = Array<String>(ingredientes.size) { "" }
 
-    // Recorremos el array con un forEach
+    // Array del mismo numero de elementos que el de ingredientes
+    // para las cantidades
+    val cantidades = Array<Int> (ingredientes.size) {0}
+
+    // Recorrer un array
     ingredientes.forEach {
-        //Preguntamos al usuario si tiene el ingrediente
-        println("¿Tienes ${it}? (s/n)")
-        val respuesta = readLine()
+        // Preguntamos al usuario si tiene el ingrediente
+        println("¿Tienes ${it}? [s|n]")
+        val respuesta = readln()
         if (respuesta.equals("s", ignoreCase = true)){
-            println("¿Cuántas unidades/cantidades tienes de ${it}?")
-            val cantidad: String? = readLine()
-            cantidad?.let { it1 -> cantidades[ingredientes.indexOf(it)] = it1 }
+            println("¿Cuantas unidades/cantidades tienes de ${it}")
+            val cantidad = readln()
+            cantidades[ingredientes.indexOf(it)] = cantidad.toInt()
         } else {
-            println("¿Cuántas unidades necesitas de ${it}?")
-            val cantidad = readLine()
-            cantidad?.let { it1 -> cantidades[ingredientes.indexOf(it)] = it1 }
+            println("¿Cuantas unidades/cantidades necesitas de ${it}")
+            val cantidad = readln()
+            cantidades[ingredientes.indexOf(it)] = -1*cantidad.toInt()
         }
     }
 
-    // Imprimimos los ingredientes y las cantidades
-    println("Ingredientes y cantidades:")
+    // Imprimir los ingredientes y las cantidades
+    println("----- INGREDIENTES Y CANTIDADES -----")
     for (i in ingredientes.indices){
         println("${ingredientes[i]}: ${cantidades[i]}")
     }
-
-
 }
