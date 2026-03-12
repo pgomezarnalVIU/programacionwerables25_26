@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">anotacionpartido</string>
+    <!--TEXTOS APP-->
+    <string name="txt_title">Control de anotaciones</string>
+    <string name="control_anotaciones">Control de anotaciones</string>
+    <string name="jugador">Jugador</string>
+    <string name="players">Jugadores</string>
+    <string name="points">Puntos</string>
+    <string name="add_one_point">+1 pt</string>
+    <string name="add_two_points">+2 ptos</string>
+    <string name="add_three_points">+3 ptos</string>
+    <string name="player_format">#%1$d</string>
+    <string name="player_item_format">#%1$d - %2$s</string>
+</resources>

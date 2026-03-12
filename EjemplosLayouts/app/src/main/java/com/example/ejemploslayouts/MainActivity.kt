@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -37,6 +38,7 @@ class MainActivity : ComponentActivity() {
                        TextoModificado("Titulo 2")
                        TextoEstilo("Paco")
                        TextoEstilo("Profesor informática")
+                       TextoRectangulo("Profesor en VIU")
                    }
                    /*
                     Greeting(
@@ -78,5 +80,14 @@ fun TextoEstilo(texto:String){
             fontFamily = FontFamily.SansSerif,
             background = Color.LightGray),
         modifier = Modifier.padding(10.dp)
+    )
+}
+
+@Composable
+fun TextoRectangulo(texto:String){
+    Text(texto,
+        modifier = Modifier
+            .background(Color.LightGray)
+            .padding(10.dp)
     )
 }
