@@ -48,6 +48,8 @@ data class JugadorUi(
 )
 @Composable
 fun ControlAnotacionesScreen() {
+    // Lista de jugadores
+    // Tipado específico de un mutableStateOf
     val jugadores = remember {
         mutableStateListOf(
             JugadorUi(4, "García", 8),
@@ -59,13 +61,24 @@ fun ControlAnotacionesScreen() {
             JugadorUi(23, "Díaz", 7)
         )
     }
+    // Tipado específico de un mutableStateOf
+    // En este caso con Int
     var selectedIndex by remember { mutableIntStateOf(0) }
-    var expanded by remember { mutableStateOf(false) }
 
+    // funcion que permite sumar puntos
     fun sumarPuntos(valor: Int) {
         val actual = jugadores[selectedIndex]
+        // La función copy cambia las propiedades que se marquen sin cambiar
+        // el resto de valores
+        // Esto provoca un cambio en el mutableStateListOf y por lo tanto lo
+        // repinta
         jugadores[selectedIndex] = actual.copy(puntos = actual.puntos + valor)
+        //ESTO ES UN ERROR PORQUE LO HEMOS DEFINIDO COMO VAL
+        //Y AUNQUE LO DEFINAMOS COMO VAR, NO SE REPINTARÍA, PORQUE LO QUE SE
+        //MONITORIZA ES EL MUTABLELIST
+        //jugadores[selectedIndex].puntos=actual.puntos + valor
     }
+
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -79,7 +92,7 @@ fun ControlAnotacionesScreen() {
             fontWeight = FontWeight.Bold
         )
         Spacer(modifier = Modifier.height(16.dp))
-
+        //Label de DropDown
         Text(
             text = "Jugador",
             style = MaterialTheme.typography.labelLarge,
@@ -136,61 +149,6 @@ fun ControlAnotacionesScreen() {
     }
 }
 
-@Composable
-fun JugadorDropdownSimple(
-    jugadores: List<JugadorUi>,
-    selectedIndex: Int,
-    onJugadorSeleccionado: (Int) -> Unit
-) {
-    var expanded by remember { mutableStateOf(false) }
-
-    Box(modifier = Modifier.fillMaxWidth()) {
-        OutlinedButton(
-            onClick = { expanded = true },
-            modifier = Modifier.fillMaxWidth(),
-            shape = RoundedCornerShape(16.dp)
-        ) {
-            Text(
-                text = stringResource(
-                    R.string.player_format,
-                    jugadores[selectedIndex].numero
-                ),
-                modifier = Modifier.weight(1f),
-                color = Color(0xFF111827)
-            )
-
-            Icon(
-                painter = painterResource(R.drawable.arrow_drop_down),
-                contentDescription = null,
-                tint = Color(0xFF111827)
-            )
-        }
-
-        DropdownMenu(
-            expanded = expanded,
-            onDismissRequest = { expanded = false },
-            modifier = Modifier.fillMaxWidth(0.92f)
-        ) {
-            jugadores.forEachIndexed { index, jugador ->
-                DropdownMenuItem(
-                    text = {
-                        Text(
-                            text = stringResource(
-                                R.string.player_item_format,
-                                jugador.numero,
-                                jugador.nombre
-                            )
-                        )
-                    },
-                    onClick = {
-                        onJugadorSeleccionado(index)
-                        expanded = false
-                    }
-                )
-            }
-        }
-    }
-}
 @Composable
 fun PuntosButton(
     texto: String,
