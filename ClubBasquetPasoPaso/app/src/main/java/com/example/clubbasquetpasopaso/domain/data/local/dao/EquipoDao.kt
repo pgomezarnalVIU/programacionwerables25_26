@@ -11,8 +11,14 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface EquipoDao {
 
-    @Query(value="SELECT * FROM equipos")
+    @Query(value="SELECT * FROM equipos ORDER BY id DESC")
     fun getAllEquipos(): Flow<List<EquipoEntity>>
+
+    @Query(value="SELECT * FROM equipos ORDER BY nombre ASC")
+    fun getAllEquiposOrderByNombre(): Flow<List<EquipoEntity>>
+
+    @Query(value="SELECT * FROM equipos WHERE id= :id")
+    suspend fun getEquipoById(id:Int): EquipoEntity
 
     @Insert
     suspend fun insertEquipo(equipo: EquipoEntity)

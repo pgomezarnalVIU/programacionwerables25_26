@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "156590195157",
+    "project_id": "equipobasket-e2e09",
+    "storage_bucket": "equipobasket-e2e09.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:156590195157:android:94a069a4cb9b1220b5bd5c",
+        "android_client_info": {
+          "package_name": "com.example.clubbasquetpasopaso"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBsKJSiUabvpUSk8rmO5r7PCnrUwOe51Os"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

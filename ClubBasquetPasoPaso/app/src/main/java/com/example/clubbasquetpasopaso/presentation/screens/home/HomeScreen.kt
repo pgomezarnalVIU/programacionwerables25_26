@@ -56,7 +56,7 @@ data class MenuItemUi(
 fun HomeScreen(onNavegarPerfil:()->Unit, onNavegarScreen: (Routes)->Unit){
 
     val enlaces = listOf(
-        MenuItemUi("Noticias", R.drawable.noticias_logo, Routes.Equipos),
+        MenuItemUi("Noticias", R.drawable.noticias_logo, Routes.Noticias),
         MenuItemUi("Equipos", R.drawable.equipos_logo, Routes.Equipos),
         MenuItemUi("Mi Equipo", R.drawable.mi_equipo_logo, Routes.Equipos),
         MenuItemUi("Estadísticas", R.drawable.estadisticas_logo, Routes.Equipos)

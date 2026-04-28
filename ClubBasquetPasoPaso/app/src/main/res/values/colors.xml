@@ -13,4 +13,12 @@
     <color name="orangeAccent">#FFFF7A00</color>
 
     <color name="topBarBackground">#FF26262A</color>
+    <color name="textPrimary">#FFF5F7FA</color>
+    <color name="textSecondary">#FF9AA4B2</color>
+    <color name="accentOrangeLogin">#FFFF6A00</color>
+    <color name="accentOrangeDark">#FFE85E00</color>
+    <color name="fieldContainer">#FF111826</color>
+    <color name="fieldBorder">#FF111826</color>
+
+    <color name="backgroundDark">#FF0B0B10</color>
 </resources>
